@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Blocked</title>
+  <script src="theme-loader.js"></script>
+  <style>
+    html {
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
+    
+    :root {
+      --background-color: #ffffff;
+      --text-color: #000000;
+    }
+
+    [data-theme="dark"] {
+      --background-color: #1a1a1a;
+      --text-color: #ffffff;
+    }
+
+    body {
+      text-align: center;
+      padding-top: 50px;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      background: var(--background-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .content {
+      padding: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>Page Blocked</h1>
+    <p>This page has been blocked by the Site Blocker extension.</p>
+  </div>
+  <script src="blocked.js"></script>
+</body>
+</html>

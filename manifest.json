@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "Site Blocker",
+    "version": "1.0",
+    "description": "Block websites based on selected mode",
+    "permissions": [
+      "storage",
+      "webNavigation",
+      "tabs"
+    ],
+    "action": {
+      "default_title": "Configure Site Blocker"
+    },
+    "background": {
+      "service_worker": "background.js"
+    }
+  }
