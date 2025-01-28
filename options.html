@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<meta charset="UTF-8">
 <head>
   <title>Site Blocker - Settings</title>
   <script src="theme-loader.js"></script>
@@ -35,6 +36,7 @@
       transition: background-color 0.3s, color 0.3s;
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       line-height: 1.6;
+      padding-bottom: 100px;
     }
 
     h1 {
@@ -186,6 +188,29 @@
       background-color: var(--background-color);
       color: var(--text-color);
     }
+
+    /* Footer styles */
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      padding: 20px;
+      background: var(--background-color);
+      font-size: 14px;
+      border-top: 1px solid var(--textarea-border);
+    }
+
+    footer a {
+      color: var(--text-color);
+      text-decoration: underline;
+      transition: opacity 0.15s ease;
+    }
+
+    footer a:hover {
+      opacity: 0.7;
+    }
   </style>
 </head>
 <body>
@@ -217,6 +242,14 @@
       <textarea id="focusList" placeholder="One URL per line"></textarea>
     </div>
   </div>
+
+  <footer>
+    Made by <a href="https://github.com/fromjag" target="_blank" rel="noopener noreferrer">Joaquin Ariño</a>
+    •
+    <a href="https://github.com/fromjag/TabSaverExtension" target="_blank" rel="noopener noreferrer">
+      Support with ⭐ on GitHub
+    </a>
+  </footer>
   
   <script src="options.js"></script>
 </body>
