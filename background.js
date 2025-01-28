@@ -19,7 +19,7 @@ chrome.action.onClicked.addListener(function() {
     chrome.storage.local.get(['permaBanList', 'focusList', 'mode'], function(data) {
       const permaBanUrls = data.permaBanList ? data.permaBanList.split('\n') : [];
       const focusUrls = data.focusList ? data.focusList.split('\n') : [];
-      
+       
       if (checkUrl(details.url, permaBanUrls)) {
         chrome.tabs.update(details.tabId, { url: 'blocked.html' });
         return;
