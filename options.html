@@ -3,6 +3,7 @@
 <head>
   <title>Site Blocker - Settings</title>
   <script src="theme-loader.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/inter/3.19.3/inter.css" rel="stylesheet">
   <style>
     html {
       background-color: var(--background-color);
@@ -13,28 +14,49 @@
       --background-color: #ffffff;
       --text-color: #000000;
       --textarea-background: #f5f5f5;
-      --textarea-border: #cccccc;
+      --textarea-border: #e5e7eb;
+      --accent-color: #2563eb;
+      --muted-text: #6b7280;
     }
 
     [data-theme="dark"] {
-      --background-color: #1a1a1a;
+      --background-color: #09090b;
       --text-color: #ffffff;
-      --textarea-background: #2d2d2d;
-      --textarea-border: #404040;
+      --textarea-background: #18181b;
+      --textarea-border: #27272a;
+      --muted-text: #a1a1aa;
     }
 
     body {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 20px;
+      margin: 0;
+      padding: 32px;
       background: var(--background-color);
       color: var(--text-color);
       transition: background-color 0.3s, color 0.3s;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 0 0 24px 0;
+      letter-spacing: -0.025em;
+    }
+
+    h3 {
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0 0 8px 0;
+      color: var(--muted-text);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     .container {
       display: flex;
-      gap: 20px;
+      gap: 32px;
+      margin-top: 32px;
     }
 
     .list-container {
@@ -42,54 +64,135 @@
     }
 
     textarea {
-      width: 100%;
-      height: 300px;
+      width: 40vw;
+      height: 50vh;
       background: var(--textarea-background);
       color: var(--text-color);
       border: 1px solid var(--textarea-border);
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 4px;
+      padding: 12px;
+      border-radius: 6px;
+      resize: none;
+      overflow: auto;
+      white-space: nowrap;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      transition: border-color 0.15s ease;
+    }
+
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent-color);
     }
 
     .header-controls {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 20px;
+      gap: 16px;
     }
 
-    select {
-      padding: 8px;
-      border-radius: 4px;
+    .mode-toggle {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mode-label {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* Switch component styles */
+    .switch {
+      --switch-width: 36px;
+      --switch-height: 20px;
+      
+      position: relative;
+      display: inline-block;
+      width: var(--switch-width);
+      height: var(--switch-height);
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--textarea-border);
+      transition: .2s ease-in-out;
+      border-radius: var(--switch-height);
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: calc(var(--switch-height) - 4px);
+      width: calc(var(--switch-height) - 4px);
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      transition: .2s ease-in-out;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--accent-color);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(calc(var(--switch-width) - var(--switch-height)));
+    }
+
+    /* Theme selector styles */
+    select.theme-select {
+      appearance: none;
+      padding: 8px 32px 8px 12px;
       background: var(--textarea-background);
-      color: var(--text-color);
       border: 1px solid var(--textarea-border);
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-color);
+      cursor: pointer;
+      transition: border-color 0.15s ease;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='currentColor' d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 8px center;
     }
 
-    .mode-selector label {
-      margin-right: 20px;
+    select.theme-select:hover {
+      border-color: var(--accent-color);
     }
 
-    .mode-selector input[type="radio"] {
-      margin-right: 5px;
+    select.theme-select:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 2px var(--accent-color-alpha);
     }
   </style>
 </head>
 <body>
-  <h1>Site Blocker - Settings</h1>
+  <h1>Site Blocker</h1>
   
   <div class="header-controls">
-    <div class="mode-selector">
-      <label>
-        <input type="radio" name="mode" value="normal" checked> Normal Mode
-      </label>
-      <label>
-        <input type="radio" name="mode" value="focus"> Focus Mode
+    <div class="mode-toggle">
+      <span class="mode-label">Focus Mode</span>
+      <label class="switch">
+        <input type="checkbox" id="modeToggle">
+        <span class="slider"></span>
       </label>
     </div>
 
-    <select id="themeSelector">
+    <select id="themeSelector" class="theme-select">
       <option value="system">System Theme</option>
       <option value="light">Light Theme</option>
       <option value="dark">Dark Theme</option>
@@ -98,11 +201,11 @@
   
   <div class="container">
     <div class="list-container">
-      <h3>Permanent Ban List</h3>
+      <h2>Permanent Block List</h2>
       <textarea id="permaBanList" placeholder="One URL per line"></textarea>
     </div>
     <div class="list-container">
-      <h3>Focus Ban List</h3>
+      <h2>Focus Block List</h2>
       <textarea id="focusList" placeholder="One URL per line"></textarea>
     </div>
   </div>
