@@ -1,4 +1,4 @@
-# Site Blocker
+# Site Blocker <img src="icons/icon120.png" width="22">
 **Site Blocker** is a Chrome extension that helps you block websites based on two modes: permanent blocking and focus mode.
 
 📥 [Coming soon to Chrome Web Store]
