@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Site Blocker",
     "version": "1.0",
-    "description": "Block websites based on selected mode",
+    "description": "Block websites based to focus",
     "permissions": [
       "storage",
       "webNavigation",
