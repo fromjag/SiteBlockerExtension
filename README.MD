@@ -12,10 +12,12 @@
 ## Screenshots
 <img src="screenshots/light.png">
 <img src="screenshots/dark.png">
+
 ## Icons
-[Placeholder for extension icon]
-[Placeholder for toolbar icon light]
-[Placeholder for toolbar icon dark]
+<img src="icons/icon120.png" width="60">
+
+<img src="screenshots/light_bar.png">
+<img src="screenshots/dark_bar.png">
 
 ## Manual Installation
 1. Download the source code
