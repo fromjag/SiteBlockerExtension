@@ -10,9 +10,8 @@
 - 💾 **Auto-Save**: Your settings are saved instantly
 
 ## Screenshots
-[Placeholder for light theme screenshot]
-[Placeholder for dark theme screenshot]
-
+<img src="screenshots/light.png">
+<img src="screenshots/dark.png">
 ## Icons
 [Placeholder for extension icon]
 [Placeholder for toolbar icon light]
